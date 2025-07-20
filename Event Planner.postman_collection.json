@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "85d42fa7-2a85-4e5c-b12e-0ff4cba57448",
+		"name": "Event Planner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46913936",
+		"_collection_link": "https://jeanbricegbami.postman.co/workspace/Jean-Brice-Gbami's-Workspace~9fb7ddd8-6b9f-456b-81ad-7d29cb069ad1/collection/46913936-85d42fa7-2a85-4e5c-b12e-0ff4cba57448?action=share&source=collection_link&creator=46913936"
+	},
+	"item": [
+		{
+			"name": "creation d'un nouvel utilisateur",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"nouveau@example.com\",\r\n  \"password\": \"Password123\",\r\n  \"nom\": \"Martin\",\r\n  \"prenom\": \"Sophie\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ajout d'un evenement",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJub3V2ZWF1QGV4YW1wbGUuY29tIiwiaWF0IjoxNzUzMDQ1OTY3LCJleHAiOjE3NTMxMzIzNjd9.B3r44sCfQUNbJQufInnkSOm84SPohbMYmxrVA0uZehk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Web 3.0 & Blockchain 2024\",\r\n    \"description\": \"Retour d’expérience sur les projets Web3 lancés en Europe\",\r\n    \"location\": \"Maison de la Mutualité, Paris\",\r\n    \"capacity\": 70,\r\n    \"waitListCapacity\": 10,\r\n    \"starts_at\": \"2024-10-10T08:30:00Z\",\r\n    \"ends_at\": \"2024-10-10T17:00:00Z\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "connexion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"nouveau@example.com\",\r\n  \"password\": \"Password123\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
